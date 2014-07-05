@@ -46,8 +46,8 @@
                     android:layout_below="@id/userInfo"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="70dp"
-                    android:textColor="@color/white"
                     android:text="კრედიტების ჯამი: "
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -58,8 +58,8 @@
                     android:layout_below="@id/totalCredits"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="30dp"
-                    android:textColor="@color/white"
                     android:text="თქვენი მიმდინარე GPA: "
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </RelativeLayout>
@@ -68,11 +68,47 @@
                 android:id="@+id/tab2"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:background="@color/black"
                 android:orientation="vertical" >
 
-                <ListView
+                <RelativeLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent" >
+                    android:layout_height="wrap_content" 
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white" 
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:layout_marginTop="3dp"
+                        android:text="საგანი"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:text="კრედიტი" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:textColor="@color/white" 
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:text="ქულა"/>
+                </RelativeLayout>
+
+                <ListView
+                    android:id="@+id/subjects_list"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent" >
                 </ListView>
             </LinearLayout>
         </FrameLayout>
