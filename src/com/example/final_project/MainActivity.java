@@ -14,9 +14,10 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 	}
 	
-//	public void onTsuClick(View v) {
-//		Intent i = new Intent(getBaseContext(), CategoryActivity.class);
-//		i.putExtra("name", "tsu");
-//		startActivity(i);
-//	}
+	public void onTsuClick(View v) {
+		System.out.println("shemovidaaa");
+		Intent i = new Intent(getBaseContext(), TsuLogInActivity.class);
+		i.putExtra("name", "tsu");
+		startActivity(i);
+	}
 }
