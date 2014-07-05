@@ -1,6 +1,7 @@
 package com.example.final_project;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -23,5 +24,9 @@ public class TsuLogInActivity extends Activity{
 		if(name.equals("") || surname.equals("") || password.equals("")) return;
 		System.out.println(name + "   " + surname + "  " + password);
 
+		Intent i = new Intent(getBaseContext(), StudentsPageActivity.class);
+		i.putExtra("mail", "tkesh11@freeuni.edu.ge");
+		startActivity(i);
 	}
+	
 }

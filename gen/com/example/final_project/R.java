@@ -21,17 +21,24 @@ public final class R {
         public static final int tsu_logo_svg=0x7f020001;
     }
     public static final class id {
-        public static final int name=0x7f070001;
-        public static final int password=0x7f070005;
-        public static final int surname=0x7f070003;
+        public static final int gpa=0x7f070005;
+        public static final int name=0x7f070007;
+        public static final int password=0x7f07000b;
+        public static final int surname=0x7f070009;
+        public static final int tab1=0x7f070002;
+        public static final int tab2=0x7f070006;
+        public static final int tabhost=0x7f070001;
+        public static final int totalCredits=0x7f070004;
         public static final int tsuUni=0x7f070000;
-        public static final int userName=0x7f070002;
-        public static final int userPassword=0x7f070006;
-        public static final int userSurName=0x7f070004;
+        public static final int userInfo=0x7f070003;
+        public static final int userName=0x7f070008;
+        public static final int userPassword=0x7f07000c;
+        public static final int userSurName=0x7f07000a;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int activity_tsulogin=0x7f030001;
+        public static final int activity_profilepage=0x7f030001;
+        public static final int activity_tsulogin=0x7f030002;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
