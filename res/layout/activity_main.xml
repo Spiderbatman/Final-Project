@@ -2,11 +2,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context="${relativePackage}.${activityClass}" >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_centerHorizontal="true"
+        android:paddingTop="20dp"
+        android:text="@string/title"
+        android:textColor="@color/green"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tsuUni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="150dp"
+        android:text="@string/tsu"
+        android:textColor="@color/white"
+        android:onClick="onTsuClick"
+        android:textSize="15sp" />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="220dp"
+        android:text="@string/gpi"
+        android:textColor="@color/white"
+        android:onClick="onGpiClick"
+        android:textSize="15sp" />
 
 </RelativeLayout>
