@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical" >
+
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="20dp"
+        android:text="@string/title"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        />
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:text="გთხოვთ შეიყვანოთ თქვენი მონაცემები"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        />
+    
+    <TextView 
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="მეილი"
+        android:textColor="@color/white"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="40dp"
+        />
+    
+    <EditText
+        android:id="@+id/userName"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@id/name"
+        android:hint="მეილი"
+        android:background="@color/white"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="170dp" />
+    
+    <TextView 
+        android:id="@+id/endOfMail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_toRightOf="@id/userName"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="10dp"
+        />
+    
+    <TextView 
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="პაროლი"
+        android:layout_below="@id/userName"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        />
+
+    <EditText
+        android:id="@+id/userPassword"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userName"
+        android:layout_toRightOf="@id/password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="11dp"
+        android:background="@color/white"
+        android:inputType="textPassword"
+        android:hint="პაროლი" />
+    
+    <Button 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/userPassword"
+        android:layout_centerHorizontal="true"
+        android:background="@color/blue"
+        android:onClick="signInClick"
+        android:text="შესვლა"
+        />
+
+</RelativeLayout>

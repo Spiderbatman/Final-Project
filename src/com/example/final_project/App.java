@@ -25,11 +25,11 @@ public class App extends Application{
 	}
 	private void generate() {
 		Subject a = new Subject("კალკულუსი", 6, 92);
-		Subject b = new Subject("პროგრამირება", 7, 94);
-		Subject c = new Subject("ალბათობა", 5, 84);
-		Subject d = new Subject("ანდროიდი", 4, 82);
-		Subject e = new Subject("androidi", 4, 85);
-		Subject f = new Subject("antropologia", 4, 83);
+		Subject b = new Subject("პროგრამირება", 7, 81);
+		Subject c = new Subject("ალბათობა", 5, 71);
+		Subject d = new Subject("ანდროიდი", 4, 61);
+		Subject e = new Subject("androidi", 4, 70);
+		Subject f = new Subject("antropologia", 4, 33);
 		subjects.add(a);
 		subjects.add(b);
 		subjects.add(c);

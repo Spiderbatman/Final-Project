@@ -22,9 +22,8 @@ public class MainActivity extends Activity {
 		
 	}
 	
-	public void onTsuClick(View v) {
-		System.out.println("shemovidaaa");
-		Intent i = new Intent(getBaseContext(), TsuLogInActivity.class);
+	public void logInClick(View v) {
+		Intent i = new Intent(getBaseContext(), LogInActivity.class);
 		i.putExtra("name", "tsu");
 		startActivity(i);
 	}

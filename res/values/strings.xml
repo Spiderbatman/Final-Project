@@ -3,14 +3,14 @@
 
     <string name="app_name">Final-Project</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title">გთხოვთ აირჩიოთ თქვენი უნივერსიტეტი</string>
-    <string name="tsu">თბილისის სახელმწიფო უნივერსიტეტი</string>
-    <string name="gpi">საქართველოს ტექნიკური უნივერსიტეტი</string>
+    <string name="title">თავისუფალი უნივერსიტეტი</string>
+    <string name="avtorization">გთხოვთ გაიაროთ ავტორიზაცია</string>
     <color name="black">#000000</color>
 	<color name="green">#04B404</color>
 	<color name="white">#E0F8F7</color>
 	<color name="blue">#0080FF</color>
 	<string-array name="mark_array">
+	    <item></item>
         <item>91-100 A</item>
         <item>81-90 B</item>
         <item>71-80 C</item>

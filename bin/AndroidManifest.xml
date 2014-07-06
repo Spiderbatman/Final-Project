@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.final_project.TsuLogInActivity"
+            android:name="com.example.final_project.LogInActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop" >
         </activity>
