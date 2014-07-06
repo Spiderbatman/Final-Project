@@ -8,7 +8,7 @@
         android:id="@+id/tabhost"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@color/blue" >
+        android:background="@color/black" >
 
         <TabWidget
             android:id="@android:id/tabs"
@@ -71,44 +71,60 @@
                 android:background="@color/black"
                 android:orientation="vertical" >
 
+                <EditText
+                    android:id="@+id/filterText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:hint="შეიყვანეთ საგნის სახელი" />
+
+                <Spinner
+                    android:id="@+id/mark_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/white" 
+                    />
+
                 <RelativeLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" 
-                    android:layout_marginTop="20dp">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp" >
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/white" 
-                        android:textStyle="bold"
-                        android:textSize="15sp"
                         android:layout_marginTop="3dp"
-                        android:text="საგანი"/>
+                        android:text="საგანი"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
+                        android:text="კრედიტი"
                         android:textColor="@color/white"
-                        android:textStyle="bold"
                         android:textSize="15sp"
-                        android:text="კრედიტი" />
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:textColor="@color/white" 
-                        android:textStyle="bold"
+                        android:text="ქულა"
+                        android:textColor="@color/white"
                         android:textSize="15sp"
-                        android:text="ქულა"/>
+                        android:textStyle="bold" />
                 </RelativeLayout>
 
                 <ListView
                     android:id="@+id/subjects_list"
-                    android:layout_marginTop="20dp"
                     android:layout_width="fill_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp" >
                 </ListView>
             </LinearLayout>
         </FrameLayout>

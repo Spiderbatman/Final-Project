@@ -2,19 +2,25 @@ package com.example.final_project;
 
 import java.util.ArrayList;
 
-import com.example.adapters.SubjectListAdapter;
-import com.example.model.Subject;
-
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
+
+import com.example.adapters.SubjectListAdapter;
+import com.example.model.Subject;
 
 public class StudentsPageActivity extends Activity{
 	private ArrayList<Subject> subjects = new ArrayList<Subject>();
 	private ListView listView;
 	private SubjectListAdapter adapter;
+	private EditText text;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +28,23 @@ public class StudentsPageActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_profilepage);
 		addTabs();
+		text = (EditText) findViewById(R.id.filterText);
 		App ap = (App) getApplication();
 		subjects = ap.getSubjects();
 		listView = (ListView) findViewById(R.id.subjects_list);
 		adapter = new SubjectListAdapter(getLayoutInflater(), ap.getSubjects());
 		listView.setAdapter(adapter);
 		calculate();
-		
+		searchListener();
+		fillSpinner();
+	}
+	
+	private void fillSpinner() {
+		Spinner spinner = (Spinner) findViewById(R.id.mark_spinner);
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+		        R.array.mark_array, android.R.layout.simple_spinner_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spinner.setAdapter(adapter);
 	}
 	
 	private double gpaCredit(double m) {
@@ -74,5 +90,27 @@ public class StudentsPageActivity extends Activity{
 		tabhost.addTab(spec);
 
 		tabhost.setCurrentTab(0);
+	}
+	
+	private void searchListener() {
+		text.addTextChangedListener(new TextWatcher() {
+
+			@Override
+			public void onTextChanged(CharSequence arg0, int arg1, int arg2,
+					int arg3) {
+				adapter.getFilter().filter(text.getText().toString());
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence arg0, int arg1,
+					int arg2, int arg3) {
+
+			}
+
+			@Override
+			public void afterTextChanged(Editable arg0) {
+
+			}
+		});
 	}
 }

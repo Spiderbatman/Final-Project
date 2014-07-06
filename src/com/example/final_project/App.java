@@ -28,10 +28,13 @@ public class App extends Application{
 		Subject b = new Subject("პროგრამირება", 7, 94);
 		Subject c = new Subject("ალბათობა", 5, 84);
 		Subject d = new Subject("ანდროიდი", 4, 82);
-
+		Subject e = new Subject("androidi", 4, 85);
+		Subject f = new Subject("antropologia", 4, 83);
 		subjects.add(a);
 		subjects.add(b);
 		subjects.add(c);
 		subjects.add(d);
+		subjects.add(e);
+		subjects.add(f);
 	}
 }
