@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Final-Project</string>
-    <string name="tsu">TSU</string>
+    <string name="tsu">tsu</string>
     <string name="hello_world">Hello world!</string>
     <string name="title">თავისუფალი უნივერსიტეტი</string>
     <string name="avtorization">გთხოვთ გაიაროთ ავტორიზაცია</string>
