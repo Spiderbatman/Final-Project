@@ -15,32 +15,38 @@ public final class R {
     }
     public static final class color {
         public static final int black=0x7f050000;
-        public static final int blue=0x7f050003;
+        public static final int blue=0x7f050004;
         public static final int green=0x7f050001;
-        public static final int white=0x7f050002;
+        public static final int white=0x7f050003;
+        public static final int yellow=0x7f050002;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int tsu_logo_svg=0x7f020001;
+        public static final int calc=0x7f020000;
+        public static final int freeuni=0x7f020001;
+        public static final int ic_action_search=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
+        public static final int profile=0x7f020004;
+        public static final int subject=0x7f020005;
     }
     public static final class id {
-        public static final int credit=0x7f080011;
+        public static final int credit=0x7f080012;
         public static final int endOfMail=0x7f080002;
-        public static final int filterText=0x7f08000c;
-        public static final int gpa=0x7f08000a;
-        public static final int mark=0x7f080012;
-        public static final int mark_spinner=0x7f08000e;
+        public static final int filterText=0x7f08000d;
+        public static final int gpa=0x7f08000b;
+        public static final int mark=0x7f080013;
+        public static final int mark_spinner=0x7f08000f;
         public static final int name=0x7f080000;
         public static final int password=0x7f080003;
-        public static final int subjectName=0x7f080010;
-        public static final int subjects_list=0x7f08000f;
-        public static final int tab1=0x7f080007;
-        public static final int tab2=0x7f08000b;
-        public static final int tabhost=0x7f080006;
+        public static final int signInBut=0x7f080006;
+        public static final int subjectName=0x7f080011;
+        public static final int subjects_list=0x7f080010;
+        public static final int tab1=0x7f080008;
+        public static final int tab2=0x7f08000c;
+        public static final int tabhost=0x7f080007;
         public static final int textLogin=0x7f080005;
-        public static final int text_spinner=0x7f08000d;
-        public static final int totalCredits=0x7f080009;
-        public static final int userInfo=0x7f080008;
+        public static final int text_spinner=0x7f08000e;
+        public static final int totalCredits=0x7f08000a;
+        public static final int userInfo=0x7f080009;
         public static final int userName=0x7f080001;
         public static final int userPassword=0x7f080004;
     }

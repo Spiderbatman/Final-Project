@@ -2,6 +2,7 @@ package com.example.final_project;
 
 import java.util.ArrayList;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TabHost;
+import android.widget.TabWidget;
 import android.widget.TextView;
 
 import com.example.adapters.SubjectListAdapter;
@@ -65,10 +67,8 @@ public class StudentsPageActivity extends Activity {
 					int arg2, long arg3) {
 				// TODO Auto-generated method stub
 				
-
 				String t = (String) arg0.getItemAtPosition(arg2);
-				if (t.equals("")) {
-					filterSubjects = (ArrayList<Subject>)subjects.clone();
+				if (t.equals("Mark")) {
 					return;
 				}
 				double start = -1;
@@ -95,7 +95,6 @@ public class StudentsPageActivity extends Activity {
 				filterSubjects.clear();
 
 				for(int i = 0; i < subjects.size(); i++) {
-					System.out.println("start   " + subjects.get(i) + "    "  + end);
 					if(subjects.get(i).getPercent() > start && subjects.get(i).getPercent() < end) {
 						filterSubjects.add(subjects.get(i));
 						System.out.println("shemovidaaaaaa" + t + "aaa  " + filterSubjects.size());
@@ -157,12 +156,12 @@ public class StudentsPageActivity extends Activity {
 
 		spec = tabhost.newTabSpec("screen1");
 		spec.setContent(R.id.tab1);
-		spec.setIndicator("Info", null);
+		spec.setIndicator("", getResources().getDrawable(R.drawable.profile));
 		tabhost.addTab(spec);
 
 		spec = tabhost.newTabSpec("screen2");
 		spec.setContent(R.id.tab2);
-		spec.setIndicator("Subjects", null);
+		spec.setIndicator("", getResources().getDrawable(R.drawable.subject));
 		tabhost.addTab(spec);
 
 		tabhost.setCurrentTab(0);

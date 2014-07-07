@@ -11,7 +11,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:text="@string/title"
-        android:textColor="@color/green"
+        android:textColor="@color/yellow"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -21,20 +21,29 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
         android:text="@string/avtorization"
-        android:textColor="@color/white"
+        android:textColor="@color/yellow"
         android:layout_centerHorizontal="true"
         android:clickable="true"
         android:textSize="15sp" />
     
     <Button
+        android:id="@+id/signInBut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
         android:layout_below="@id/textLogin"
         android:layout_centerHorizontal="true"
         android:text="ავტორიზაცია"
-        android:textColor="@color/white"
+        android:textColor="@color/yellow"
         android:onClick="logInClick"
+        />
+    <ImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/signInBut"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/freeuni"
         />
 
 </RelativeLayout>
