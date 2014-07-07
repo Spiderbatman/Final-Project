@@ -28,6 +28,7 @@ public class ChooseSubjectActivity extends Activity{
 		listView = (ListView) findViewById(R.id.chooseSubjects_list);
 		adapter = new ChooseSubjectAdapter(getLayoutInflater(), selectSubject);
 		listView.setAdapter(adapter);
-		
+		System.out.println("sdsdsds");
+		System.out.println("sssssssssssssssssss");
 	}
 }
