@@ -61,6 +61,18 @@
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
+                
+                <Button 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/gpa"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/blue"
+                    android:layout_centerHorizontal="true"
+                    android:text="საგნის არჩევა"
+                    android:onClick="chooseSubject"
+                    />
+                
             </RelativeLayout>
 
             <LinearLayout

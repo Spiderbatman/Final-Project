@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/chooseSubj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="აირჩიეთ სასურველი საგანი"
+        android:textColor="@color/white"
+        android:textSize="17sp" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/chooseSubj"
+        android:layout_marginTop="50dp"
+        android:background="@color/blue"
+        android:onClick="submitClick"
+        android:text="არჩევა" />
+
+    <ListView
+        android:id="@+id/chooseSubjects_list"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/submit"
+        android:layout_marginTop="20dp" >
+    </ListView>
+
+</RelativeLayout>

@@ -2,7 +2,6 @@ package com.example.final_project;
 
 import java.util.ArrayList;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +15,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TabHost;
-import android.widget.TabWidget;
 import android.widget.TextView;
 
 import com.example.adapters.SubjectListAdapter;
@@ -187,5 +185,11 @@ public class StudentsPageActivity extends Activity {
 
 			}
 		});
+	}
+	
+	public void chooseSubject(View v) {
+		Intent i = new Intent(getBaseContext(), ChooseSubjectActivity.class);
+		i.putExtra("ragac", "sds");
+		startActivity(i);
 	}
 }
