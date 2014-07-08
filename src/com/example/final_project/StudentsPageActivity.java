@@ -66,11 +66,9 @@ public class StudentsPageActivity extends Activity {
 				// TODO Auto-generated method stub
 				
 				String t = (String) arg0.getItemAtPosition(arg2);
-				if (t.equals("Mark")) {
-					return;
-				}
+				
 				double start = -1;
-				double end = 0.0;
+				double end = 101;
 				if (t.charAt(0) == '0') {
 					start = 0.0;
 					end = 51;
@@ -86,7 +84,7 @@ public class StudentsPageActivity extends Activity {
 				} else if (t.charAt(0) == '8') {
 					start = 80;
 					end = 91;
-				} else {
+				} else if (t.charAt(0) == '9'){
 					start = 90;
 					end = 101;
 				}

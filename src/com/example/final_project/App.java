@@ -57,7 +57,16 @@ public class App extends Application{
 		selectSubject.add(j);
 		selectSubject.add(k);
 		selectSubject.add(l);
-
+		selectSubject.add(new SelectSubject("სამართალი", false));
+		selectSubject.add(new SelectSubject("სამართალი", false));
+		selectSubject.add(new SelectSubject("სამართალი", false));
+		selectSubject.add(new SelectSubject("სამართალი", false));
+		selectSubject.add(new SelectSubject("სამართალი", false));
+		selectSubject.add(new SelectSubject("სამართალი", false));
+		selectSubject.add(new SelectSubject("სამართალი", false));
+		selectSubject.add(new SelectSubject("სამართალი", false));
+		selectSubject.add(new SelectSubject("სამართალი", false));
+		selectSubject.add(new SelectSubject("სამართალი", false));
 		
 	}
 }

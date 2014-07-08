@@ -7,6 +7,12 @@ import com.example.model.SelectSubject;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ListView;
 
 public class ChooseSubjectActivity extends Activity{
@@ -15,7 +21,6 @@ public class ChooseSubjectActivity extends Activity{
 	private ListView listView;
 	private ChooseSubjectAdapter adapter;
 
-	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +33,16 @@ public class ChooseSubjectActivity extends Activity{
 		listView = (ListView) findViewById(R.id.chooseSubjects_list);
 		adapter = new ChooseSubjectAdapter(getLayoutInflater(), selectSubject);
 		listView.setAdapter(adapter);
-		System.out.println("sdsdsds");
-		System.out.println("sssssssssssssssssss");
+	}
+	
+	public void submitClick(View v) {
+		ArrayList<SelectSubject> s = adapter.getSelectSubject();
+		ArrayList<SelectSubject> resultLis = new ArrayList<SelectSubject>();
+		for (int i = 0; i < s.size(); i++) {
+			if(s.get(i).isSelected()) {
+				resultLis.add(s.get(i));
+			}
+		}
+			
 	}
 }
