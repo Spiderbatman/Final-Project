@@ -2,6 +2,7 @@ package com.example.adapters;
 
 import java.util.ArrayList;
 
+import android.R.bool;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,16 +13,20 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
 
 import com.example.final_project.R;
-import com.example.model.SelectSubject;
+import com.example.model.Subject;
 
 public class ChooseSubjectAdapter extends BaseAdapter{
 
 	private LayoutInflater inflater;
-	private ArrayList<SelectSubject> subjects;
+	private ArrayList<Subject> subjects;
+	private ArrayList<Boolean> isSelected = new ArrayList<Boolean>();
 	
-	public ChooseSubjectAdapter(LayoutInflater inflater, ArrayList<SelectSubject> subjects) {
+	public ChooseSubjectAdapter(LayoutInflater inflater, ArrayList<Subject> subjects) {
 		this.subjects = subjects;
 		this.inflater = inflater;
+		for (int i = 0; i < subjects.size(); i++) {
+			isSelected.add(false);
+		}
 	}
 	
 	@Override
@@ -42,8 +47,8 @@ public class ChooseSubjectAdapter extends BaseAdapter{
 		return 0;
 	}
 
-	public ArrayList<SelectSubject> getSelectSubject() {
-		return subjects;
+	public ArrayList<Boolean> getSelectSubject() {
+		return isSelected;
 	}
 	
 	@Override
@@ -59,19 +64,18 @@ public class ChooseSubjectAdapter extends BaseAdapter{
 			holder = (ChooseSubjectHolder) convertView.getTag();
 		}
 		
-		SelectSubject s = subjects.get(position);
-		subjects.get(position).setSelected(s.isSelected());
+		Subject s = subjects.get(position);
 		
-		holder.name.setText(s.getSubjName());
-		holder.select.setChecked(s.isSelected());
+		
+		holder.name.setText(s.getName());
+		holder.select.setChecked(isSelected.get(position));
 		
 		holder.select.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				subjects.get(position).setSelected(isChecked);
-
-				
+				isSelected.set(position, isChecked);
+				System.out.println(position);
 			}
 		});
 		

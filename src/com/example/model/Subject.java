@@ -4,9 +4,13 @@ public class Subject {
 	private String name;
 	private int credits;
 	private double percent;
-	private Mark mark;
+	private boolean isFinished;
+	private int id;
+	
 
-	public Subject(String name, int credits, double percent) {
+	public Subject(String name, int credits, double percent, boolean isFinished, int id) {
+		this.setId(id);
+		this.setFinished(isFinished);
 		this.name = name;
 		this.credits = credits;
 		this.percent = percent;
@@ -35,13 +39,22 @@ public class Subject {
 	public void setPercent(double percent) {
 		this.percent = percent;
 	}
+	
 
-	public Mark getMark() {
-		return mark;
+	public boolean isFinished() {
+		return isFinished;
 	}
 
-	public void setMark(Mark mark) {
-		this.mark = mark;
+	public void setFinished(boolean isFinished) {
+		this.isFinished = isFinished;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

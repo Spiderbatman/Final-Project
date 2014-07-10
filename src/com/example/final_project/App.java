@@ -2,17 +2,16 @@ package com.example.final_project;
 
 import java.util.ArrayList;
 
-import com.example.model.SelectSubject;
+import android.app.Application;
+
 import com.example.model.Subject;
 import com.example.web.DefaultWebWorker;
 import com.example.web.TSUWebWorker;
 
-import android.app.Application;
-
 public class App extends Application{
 	private DefaultWebWorker df;
 	private ArrayList<Subject> subjects = new ArrayList<Subject>();
-	private ArrayList<SelectSubject> selectSubject = new ArrayList<SelectSubject>();
+	private ArrayList<Subject> selectSubject = new ArrayList<Subject>();
 	
 	@Override
 	public void onCreate() {
@@ -26,17 +25,17 @@ public class App extends Application{
 		return subjects;
 	}
 	
-	public ArrayList<SelectSubject> getSelectSubject() {
+	public ArrayList<Subject> getSelectSubject() {
 		return selectSubject;
 	}
 	
 	private void generate() {
-		Subject a = new Subject("კალკულუსი", 6, 92);
-		Subject b = new Subject("პროგრამირება", 7, 81);
-		Subject c = new Subject("ალბათობა", 5, 71);
-		Subject d = new Subject("ანდროიდი", 4, 61);
-		Subject e = new Subject("androidi", 4, 70);
-		Subject f = new Subject("antropologia", 4, 33);
+		Subject a = new Subject("კალკულუსი", 6, 92, true, 1);
+		Subject b = new Subject("პროგრამირება", 7, 81, true, 1);
+		Subject c = new Subject("ალბათობა", 5, 71, true, 1);
+		Subject d = new Subject("ანდროიდი", 4, 61, true, 1);
+		Subject e = new Subject("androidi", 4, 70, true, 1);
+		Subject f = new Subject("antropologia", 4, 33, true, 1);
 		subjects.add(a);
 		subjects.add(b);
 		subjects.add(c);
@@ -44,12 +43,12 @@ public class App extends Application{
 		subjects.add(e);
 		subjects.add(f);
 		
-		SelectSubject g = new SelectSubject("სამართალი", false);
-		SelectSubject h = new SelectSubject("ბიზნესი", false);
-		SelectSubject i = new SelectSubject("სოციოლოგია", false);
-		SelectSubject j = new SelectSubject("ფსიქოლოგია", false);
-		SelectSubject k = new SelectSubject("ფინანსები", false);
-		SelectSubject l = new SelectSubject("მარკეტინგი", false);
+		Subject g = new Subject("სამართალი", 6, 0, false, 1);
+		Subject h = new Subject("ბიზნესი", 6, 0, false, 2);
+		Subject i = new Subject("სოციოლოგია", 6, 0, false, 3);
+		Subject j = new Subject("ფსიქოლოგია", 6, 0, false, 4);
+		Subject k = new Subject("ფინანსები", 6, 0, false, 5);
+		Subject l = new Subject("მარკეტინგი", 6, 0, false, 6);
 		
 		selectSubject.add(g);
 		selectSubject.add(h);
@@ -57,16 +56,15 @@ public class App extends Application{
 		selectSubject.add(j);
 		selectSubject.add(k);
 		selectSubject.add(l);
-		selectSubject.add(new SelectSubject("სამართალი", false));
-		selectSubject.add(new SelectSubject("სამართალი", false));
-		selectSubject.add(new SelectSubject("სამართალი", false));
-		selectSubject.add(new SelectSubject("სამართალი", false));
-		selectSubject.add(new SelectSubject("სამართალი", false));
-		selectSubject.add(new SelectSubject("სამართალი", false));
-		selectSubject.add(new SelectSubject("სამართალი", false));
-		selectSubject.add(new SelectSubject("სამართალი", false));
-		selectSubject.add(new SelectSubject("სამართალი", false));
-		selectSubject.add(new SelectSubject("სამართალი", false));
+		selectSubject.add(new Subject("მარკეტინგი", 6, 0, false, 7));
+		selectSubject.add(new Subject("მარკეტინგი", 6, 0, false, 8));
+		selectSubject.add(new Subject("მარკეტინგი", 6, 0, false, 9));
+		selectSubject.add(new Subject("მარკეტინგი", 6, 0, false, 10));
+		selectSubject.add(new Subject("მარკეტინგი", 6, 0, false, 11));
+		selectSubject.add(new Subject("მარკეტინგი", 6, 0, false, 12));
+		selectSubject.add(new Subject("მარკეტინგი", 6, 0, false, 13));
+
+		
 		
 	}
 }

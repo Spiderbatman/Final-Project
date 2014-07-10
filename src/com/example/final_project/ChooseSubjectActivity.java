@@ -2,22 +2,17 @@ package com.example.final_project;
 
 import java.util.ArrayList;
 
-import com.example.adapters.ChooseSubjectAdapter;
-import com.example.model.SelectSubject;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ListView;
+
+import com.example.adapters.ChooseSubjectAdapter;
+import com.example.model.Subject;
 
 public class ChooseSubjectActivity extends Activity{
 	
-	private ArrayList<SelectSubject> selectSubject = new ArrayList<SelectSubject>();
+	private ArrayList<Subject> selectSubject = new ArrayList<Subject>();
 	private ListView listView;
 	private ChooseSubjectAdapter adapter;
 
@@ -36,13 +31,13 @@ public class ChooseSubjectActivity extends Activity{
 	}
 	
 	public void submitClick(View v) {
-		ArrayList<SelectSubject> s = adapter.getSelectSubject();
-		ArrayList<SelectSubject> resultLis = new ArrayList<SelectSubject>();
+		ArrayList<Boolean> s = adapter.getSelectSubject();
+		ArrayList<Integer> resultLis = new ArrayList<Integer>();
 		for (int i = 0; i < s.size(); i++) {
-			if(s.get(i).isSelected()) {
-				resultLis.add(s.get(i));
+			if(s.get(i)) {
+				resultLis.add(selectSubject.get(i).getId());
+				System.out.println(selectSubject.get(i).getName());
 			}
 		}
-			
 	}
 }
