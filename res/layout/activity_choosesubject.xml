@@ -26,12 +26,32 @@
         android:onClick="submitClick"
         android:text="არჩევა" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/submit"
+        android:text="საგანი"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/submit"
+        android:text="კრედიტი"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
     <ListView
         android:id="@+id/chooseSubjects_list"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/submit"
-        android:layout_marginTop="20dp" >
+        android:layout_marginTop="30dp" >
     </ListView>
 
 </RelativeLayout>

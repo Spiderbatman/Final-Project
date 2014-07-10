@@ -32,10 +32,10 @@ public class App extends Application{
 	private void generate() {
 		Subject a = new Subject("კალკულუსი", 6, 92, true, 1);
 		Subject b = new Subject("პროგრამირება", 7, 81, true, 1);
-		Subject c = new Subject("ალბათობა", 5, 71, true, 1);
+		Subject c = new Subject("ალბათობა", 5, 71, false, 1);
 		Subject d = new Subject("ანდროიდი", 4, 61, true, 1);
 		Subject e = new Subject("androidi", 4, 70, true, 1);
-		Subject f = new Subject("antropologia", 4, 33, true, 1);
+		Subject f = new Subject("antropologia", 4, 33, false, 1);
 		subjects.add(a);
 		subjects.add(b);
 		subjects.add(c);

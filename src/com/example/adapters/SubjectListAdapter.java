@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Filter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.final_project.R;
@@ -53,6 +54,7 @@ public class SubjectListAdapter extends BaseAdapter{
 			holder.name = (TextView) (convertView.findViewById(R.id.subjectName));
 			holder.credit = (TextView) (convertView.findViewById(R.id.credit));
 			holder.mark = (TextView) (convertView.findViewById(R.id.mark));
+			holder.isFinished = (ImageView) convertView.findViewById(R.id.isFinished);
 
 			convertView.setTag(holder);
 		} else {
@@ -64,6 +66,8 @@ public class SubjectListAdapter extends BaseAdapter{
 		holder.name.setText(s.getName());
 		holder.credit.setText("" + s.getCredits());
 		holder.mark.setText("" + s.getPercent());
+		if(s.isFinished()) holder.isFinished.setImageResource(R.drawable.accept);
+		else holder.isFinished.setImageResource(R.drawable.cancel);
 		
 		return convertView;
 	}
@@ -72,6 +76,7 @@ public class SubjectListAdapter extends BaseAdapter{
 		TextView name;
 		TextView credit;
 		TextView mark;
+		ImageView isFinished;
 	}
 	
 	public Filter getFilter() {

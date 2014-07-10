@@ -59,6 +59,7 @@ public class ChooseSubjectAdapter extends BaseAdapter{
 			convertView = inflater.inflate(R.layout.choosesubjects_list, null, false);
 			holder.name = (TextView) (convertView.findViewById(R.id.chooseName));
 			holder.select = (CheckBox) convertView.findViewById(R.id.select);
+			holder.credit = (TextView) convertView.findViewById(R.id.chooseCredit);
 			convertView.setTag(holder);
 		} else {
 			holder = (ChooseSubjectHolder) convertView.getTag();
@@ -67,23 +68,23 @@ public class ChooseSubjectAdapter extends BaseAdapter{
 		Subject s = subjects.get(position);
 		
 		
-		holder.name.setText(s.getName());
-		holder.select.setChecked(isSelected.get(position));
-		
 		holder.select.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				isSelected.set(position, isChecked);
 				System.out.println(position);
 			}
 		});
+		holder.name.setText(s.getName());
+		holder.select.setChecked(isSelected.get(position));
+		holder.credit.setText("" + s.getCredits());
 		
 		return convertView;
 	}
 	
 	private static class ChooseSubjectHolder {
 		TextView name;
+		TextView credit;
 		CheckBox select;
 	}
 
