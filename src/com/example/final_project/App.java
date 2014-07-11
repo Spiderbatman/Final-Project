@@ -1,6 +1,8 @@
 package com.example.final_project;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import android.app.Application;
 
@@ -12,6 +14,7 @@ public class App extends Application{
 	private DefaultWebWorker df;
 	private ArrayList<Subject> subjects = new ArrayList<Subject>();
 	private ArrayList<Subject> selectSubject = new ArrayList<Subject>();
+	private Map<Subject, Map<String, String>> subjectInfo= new HashMap<Subject, Map<String, String>>();
 	
 	@Override
 	public void onCreate() {
@@ -27,6 +30,10 @@ public class App extends Application{
 	
 	public ArrayList<Subject> getSelectSubject() {
 		return selectSubject;
+	}
+	
+	public Map<Subject, Map<String, String>> getSubjectInfo() {
+		return subjectInfo;
 	}
 	
 	private void generate() {
@@ -64,7 +71,14 @@ public class App extends Application{
 		selectSubject.add(new Subject("მარკეტინგი", 6, 0, false, 12));
 		selectSubject.add(new Subject("მარკეტინგი", 6, 0, false, 13));
 
-		
+		Map<String, String> m = new HashMap<String, String>();
+		m.put("პირველი შუალედური", "" + 85);
+		m.put("მეორე შუალედური", "" + 95);
+		m.put("ფინალური", "" + 100);
+
+		for (int z = 0; z < subjects.size(); z++) {
+			subjectInfo.put(subjects.get(z), m);
+		}
 		
 	}
 }

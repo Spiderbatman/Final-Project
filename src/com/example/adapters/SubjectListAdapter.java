@@ -117,7 +117,6 @@ public class SubjectListAdapter extends BaseAdapter {
 
 			if (!filterString.equals(""))
 				t = filterString.substring(1);
-			System.out.println("aa" + filterString + "bb");
 			if (filterString.equals("") || filterString.charAt(0) != '&') {
 				String filterableString;
 				list2.clear();
@@ -143,7 +142,6 @@ public class SubjectListAdapter extends BaseAdapter {
 					fillList(90, 101, count);
 				} else  {
 					list1.clear();
-					System.out.println("shemovidaaa");
 					for (int i = 0; i < count; i++) {
 						list1.add(subjects.get(i));
 					}

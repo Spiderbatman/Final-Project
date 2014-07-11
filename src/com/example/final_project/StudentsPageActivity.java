@@ -9,6 +9,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -47,6 +48,19 @@ public class StudentsPageActivity extends Activity {
 		listView = (ListView) findViewById(R.id.subjects_list);
 		adapter = new SubjectListAdapter(getLayoutInflater(), filterSubjects);
 		listView.setAdapter(adapter);
+		listView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				
+				Intent i = new Intent(getBaseContext(), OneSubjectActivity.class);
+				Subject s = (Subject) adapter.getItem(arg2);
+				i.putExtra("SubjectName", s.getName());
+				startActivity(i);
+			}
+		});
+		
 		calculate();
 		searchListener();
 		fillSpinner();
