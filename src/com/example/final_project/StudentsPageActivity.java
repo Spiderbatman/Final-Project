@@ -66,39 +66,7 @@ public class StudentsPageActivity extends Activity {
 				// TODO Auto-generated method stub
 				
 				String t = (String) arg0.getItemAtPosition(arg2);
-				
-				double start = -1;
-				double end = 101;
-				if (t.charAt(0) == '0') {
-					start = 0.0;
-					end = 51;
-				} else if (t.charAt(0) == '5') {
-					start = 50;
-					end = 61;
-				} else if (t.charAt(0) == '6') {
-					start = 60;
-					end = 71;
-				} else if (t.charAt(0) == '7') {
-					start = 70;
-					end = 81;
-				} else if (t.charAt(0) == '8') {
-					start = 80;
-					end = 91;
-				} else if (t.charAt(0) == '9'){
-					start = 90;
-					end = 101;
-				}
-				filterSubjects.clear();
-
-				for(int i = 0; i < subjects.size(); i++) {
-					if(subjects.get(i).getPercent() > start && subjects.get(i).getPercent() < end) {
-						filterSubjects.add(subjects.get(i));
-						System.out.println("shemovidaaaaaa" + t + "aaa  " + filterSubjects.size());
-					}
-				}
-				System.out.println(filterSubjects.size());
-				listView.setAdapter(adapter);
-				adapter.notifyDataSetChanged();
+				adapter.getFilter().filter("&" + t);
 			}
 
 			@Override

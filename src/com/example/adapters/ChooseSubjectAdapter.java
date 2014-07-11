@@ -66,8 +66,7 @@ public class ChooseSubjectAdapter extends BaseAdapter{
 		}
 		
 		Subject s = subjects.get(position);
-		
-		
+	
 		holder.select.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
