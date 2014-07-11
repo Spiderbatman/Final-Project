@@ -7,10 +7,11 @@
     <string name="title">თავისუფალი უნივერსიტეტი</string>
     <string name="avtorization">გთხოვთ გაიაროთ ავტორიზაცია</string>
     <color name="black">#000000</color>
-	<color name="green">#04B404</color>
+	<color name="red">#DF0101</color>
 	<color name="yellow">#FFFF00</color>
 	<color name="white">#E0F8F7</color>
 	<color name="blue">#0080FF</color>
+	
 	<string-array name="mark_array">
 	    <item>Mark</item>
         <item>91-100 A</item>

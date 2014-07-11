@@ -16,6 +16,8 @@ public class LogInActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 		TextView t = (TextView) findViewById(R.id.endOfMail);
+		TextView k = (TextView) findViewById(R.id.incorrect);
+		//k.setVisibility(View.GONE);
 		t.setText("@freeuni.edu.ge");
 	}
 	

@@ -72,9 +72,9 @@ public class App extends Application{
 		selectSubject.add(new Subject("მარკეტინგი", 6, 0, false, 13));
 
 		Map<String, String> m = new HashMap<String, String>();
-		m.put("პირველი შუალედური", "" + 85);
-		m.put("მეორე შუალედური", "" + 95);
 		m.put("ფინალური", "" + 100);
+		m.put("მეორე შუალედური", "" + 95);
+		m.put("პირველი შუალედური", "" + 85);
 
 		for (int z = 0; z < subjects.size(); z++) {
 			subjectInfo.put(subjects.get(z), m);

@@ -23,4 +23,21 @@
         android:layout_marginTop="30dp" >
     </ListView>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:textColor="@color/red"
+        android:text="სულ"
+        />
+    
+    <TextView
+        android:id="@+id/totalMark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/red"
+        />
 </RelativeLayout>

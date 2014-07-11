@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 import android.R.bool;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,6 +65,10 @@ public class OneSubjectAdapter extends BaseAdapter{
 		
 		holder.name.setText(names.get(position));
 		holder.mark.setText(marks.get(position));
+		if(names.get(position).equals("ფინალური"))	{
+			holder.name.setTextColor(Color.RED);
+			holder.mark.setTextColor(Color.RED);
+		}
 		
 		return convertView;
 	}

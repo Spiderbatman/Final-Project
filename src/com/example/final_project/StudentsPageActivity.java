@@ -57,6 +57,7 @@ public class StudentsPageActivity extends Activity {
 				Intent i = new Intent(getBaseContext(), OneSubjectActivity.class);
 				Subject s = (Subject) adapter.getItem(arg2);
 				i.putExtra("SubjectName", s.getName());
+				i.putExtra("SubjectMark", "" + s.getPercent());
 				startActivity(i);
 			}
 		});

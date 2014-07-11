@@ -78,6 +78,16 @@
         android:background="@color/white"
         android:inputType="textPassword"
         android:hint="პაროლი" />
+    <TextView 
+        android:id="@+id/incorrect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userPassword"
+        android:text="პაროლი არაზუსტია!"
+        android:layout_marginTop="17dp"
+        android:textColor="@color/red"
+        android:layout_centerHorizontal="true"
+        />
     
     <Button 
         android:layout_width="wrap_content"

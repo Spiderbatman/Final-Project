@@ -30,10 +30,15 @@ public class OneSubjectActivity extends Activity{
 		Intent i = getIntent();
 		Bundle extra = i.getExtras();
 		TextView t = (TextView) findViewById(R.id.oneSubjName);
+		TextView sc = (TextView) findViewById(R.id.totalMark);
+
 		String name = "";
+		String score = "";
 		if (extra != null) {
 			name = extra.getString("SubjectName");
+			score = extra.getString("SubjectMark");
 			t.setText(name);
+			sc.setText(score);
 		}
 		
 		ap = (App) getApplication();
