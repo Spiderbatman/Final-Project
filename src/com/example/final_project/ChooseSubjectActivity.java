@@ -36,7 +36,6 @@ public class ChooseSubjectActivity extends Activity{
 		for (int i = 0; i < s.size(); i++) {
 			if(s.get(i)) {
 				resultLis.add(selectSubject.get(i).getId());
-				System.out.println(selectSubject.get(i).getName());
 			}
 		}
 	}

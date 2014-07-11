@@ -71,7 +71,6 @@ public class ChooseSubjectAdapter extends BaseAdapter{
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				isSelected.set(position, isChecked);
-				System.out.println(position);
 			}
 		});
 		holder.name.setText(s.getName());

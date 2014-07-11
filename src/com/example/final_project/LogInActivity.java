@@ -23,7 +23,6 @@ public class LogInActivity extends Activity{
 		String name = ((EditText)findViewById(R.id.userName)).getText().toString() + "@freeuni.edu.ge";
 		String password = ((EditText)findViewById(R.id.userPassword)).getText().toString();
 		if(name.equals("") || password.equals("")) return;
-		System.out.println(name +  "  " + password);
 
 		Intent i = new Intent(getBaseContext(), StudentsPageActivity.class);
 		i.putExtra("mail", name);

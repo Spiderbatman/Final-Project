@@ -20,12 +20,18 @@ public class SubjectListAdapter extends BaseAdapter {
 	private ArrayList<Subject> subjects;
 	private ArrayList<Subject> filter;
 	private ItemFilter item = new ItemFilter();
+	private ArrayList<Subject> list1 = new ArrayList<Subject>();
+	private ArrayList<Subject> list2 = new ArrayList<Subject>();
 
 	public SubjectListAdapter(LayoutInflater inflater,
 			ArrayList<Subject> subjects) {
 		this.subjects = subjects;
 		this.inflater = inflater;
 		this.filter = subjects;
+		for (int i = 0; i < subjects.size(); i++) {
+			list1.add(subjects.get(i));
+			list2.add(subjects.get(i));
+		}
 	}
 
 	@Override
@@ -87,69 +93,67 @@ public class SubjectListAdapter extends BaseAdapter {
 		return item;
 	}
 
-	
-	
 	private class ItemFilter extends Filter {
-		ArrayList<Subject> nlist = new ArrayList<Subject>();
-		
-		private void fillList(double start, double end, int count, ArrayList<Subject> list) {
+
+		private void fillList(double start, double end, int count) {
+			list1.clear();
 			for (int i = 0; i < count; i++) {
-				if (list.get(i).getPercent() > start && list.get(i).getPercent() < end) {
-					if(!nlist.contains(list.get(i)))
-						nlist.add(list.get(i));
-				} else if(nlist.contains(list.get(i))) nlist.remove(list.get(i));
+				if (subjects.get(i).getPercent() > start  && subjects.get(i).getPercent() < end) {
+						list1.add(subjects.get(i));
+				}
 			}
 		}
-		
+
 		@Override
 		protected FilterResults performFiltering(CharSequence constraint) {
 			String filterString = constraint.toString().toLowerCase();
 			FilterResults results = new FilterResults();
 
-			final ArrayList<Subject> list = subjects;
+			final ArrayList<Subject> nlist = new ArrayList<Subject>();
 
-			int count = list.size();
-			
+			int count = subjects.size();
+
 			String t = "";
-			
+
 			if (!filterString.equals(""))
 				t = filterString.substring(1);
-			System.out.println("sityva:" + t + "..");
-			double start = -1;
-			double end = 101;
-			if(filterString.equals("") || t.equals("mark")) {
-				System.out.println("shemovidaaa");
-				for (int i = 0; i < count; i++) {
-					if(!nlist.contains(list.get(i)))
-						nlist.add(list.get(i));
-				}
-				
-			}
-			else if (filterString.charAt(0) != '&') {
+			System.out.println("aa" + filterString + "bb");
+			if (filterString.equals("") || filterString.charAt(0) != '&') {
 				String filterableString;
+				list2.clear();
 				for (int i = 0; i < count; i++) {
-					filterableString = list.get(i).getName();
-					if (filterableString.toLowerCase().contains(filterString)) {
-						if(!nlist.contains(list.get(i)))
-							nlist.add(list.get(i));
-					} else if(nlist.contains(list.get(i))) nlist.remove(list.get(i));
+					filterableString = subjects.get(i).getName();
+					if (filterableString.toLowerCase().contains(filterString))
+						list2.add(subjects.get(i));
+
+				}
+			} else {
+
+				if (t.charAt(0) == '0') {
+					fillList(0.0, 51, count);
+				} else if (t.charAt(0) == '5') {
+					fillList(50, 61, count);
+				} else if (t.charAt(0) == '6') {
+					fillList(60, 71, count);
+				} else if (t.charAt(0) == '7') {
+					fillList(70, 81, count);
+				} else if (t.charAt(0) == '8') {
+					fillList(80, 91, count);
+				} else if (t.charAt(0) == '9') {
+					fillList(90, 101, count);
+				} else  {
+					list1.clear();
+					System.out.println("shemovidaaa");
+					for (int i = 0; i < count; i++) {
+						list1.add(subjects.get(i));
+					}
 				}
 			}
-			
-			else if (t.charAt(0) == '0') {
-				fillList(0.0, 51, count, list);
-			} else if (t.charAt(0) == '5') {
-				fillList(50, 61, count, list);
-			} else if (t.charAt(0) == '6') {
-				fillList(60, 71, count, list);
-			} else if (t.charAt(0) == '7') {
-				fillList(70, 81, count, list);
-			} else if (t.charAt(0) == '8') {
-				fillList(80, 91, count, list);
-			} else if (t.charAt(0) == '9') {
-				fillList(90, 101, count, list);
+			for (int i = 0; i < subjects.size(); i++) {
+				if (list1.contains(subjects.get(i))
+						&& list2.contains(subjects.get(i)))
+					nlist.add(subjects.get(i));
 			}
-			
 
 			results.values = nlist;
 			results.count = nlist.size();
