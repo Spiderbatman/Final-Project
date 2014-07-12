@@ -37,13 +37,15 @@ public class LogInActivity extends Activity{
 			t1.setText("");
 			t2.setText("");
 			k.setVisibility(View.VISIBLE);
+			t2.setBackgroundResource(R.drawable.erroredittext);
 			return;
 		} else k.setVisibility(View.GONE);
-		t1.setText("");
-		t2.setText("");
+		t2.setBackgroundResource(R.drawable.roundedittext);
 		Intent i = new Intent(getBaseContext(), StudentsPageActivity.class);
 		i.putExtra("mail", name);
 		startActivity(i);
+		t1.setText("");
+		t2.setText("");
 	}
 	
 }
