@@ -22,7 +22,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@id/chooseSubj"
         android:layout_marginTop="50dp"
-        android:background="@color/blue"
+        android:background="@drawable/roundbutton"
         android:onClick="submitClick"
         android:text="არჩევა" />
 
@@ -33,7 +33,7 @@
         android:text="საგანი"
         android:layout_marginLeft="5dp"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="17sp"
         android:textStyle="bold" />
 
     <TextView
@@ -43,7 +43,7 @@
         android:layout_below="@id/submit"
         android:text="კრედიტი"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="17sp"
         android:textStyle="bold" />
 
     <ListView
