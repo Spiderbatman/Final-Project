@@ -39,7 +39,8 @@ public class LogInActivity extends Activity{
 			k.setVisibility(View.VISIBLE);
 			return;
 		} else k.setVisibility(View.GONE);
-		System.out.println("movidaa");
+		t1.setText("");
+		t2.setText("");
 		Intent i = new Intent(getBaseContext(), StudentsPageActivity.class);
 		i.putExtra("mail", name);
 		startActivity(i);

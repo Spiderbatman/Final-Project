@@ -21,11 +21,11 @@ public class ChooseSubjectAdapter extends BaseAdapter{
 	private ArrayList<Subject> subjects;
 	private ArrayList<Boolean> isSelected = new ArrayList<Boolean>();
 	
-	public ChooseSubjectAdapter(LayoutInflater inflater, ArrayList<Subject> subjects) {
+	public ChooseSubjectAdapter(LayoutInflater inflater, ArrayList<Subject> subjects, boolean[] selected) {
 		this.subjects = subjects;
 		this.inflater = inflater;
-		for (int i = 0; i < subjects.size(); i++) {
-			isSelected.add(false);
+		for (int i = 0; i < selected.length; i++) {
+			isSelected.add(selected[i]);
 		}
 	}
 	

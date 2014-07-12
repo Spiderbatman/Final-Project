@@ -26,7 +26,11 @@ public class ChooseSubjectActivity extends Activity{
 		App ap = (App) getApplication();
 		selectSubject = ap.getSelectSubject();
 		listView = (ListView) findViewById(R.id.chooseSubjects_list);
-		adapter = new ChooseSubjectAdapter(getLayoutInflater(), selectSubject);
+		boolean[] sel = new boolean[selectSubject.size()];
+		if(savedInstanceState != null) {
+			sel = savedInstanceState.getBooleanArray("selKey");
+		}
+		adapter = new ChooseSubjectAdapter(getLayoutInflater(), selectSubject, sel);
 		listView.setAdapter(adapter);
 	}
 	
@@ -38,5 +42,18 @@ public class ChooseSubjectActivity extends Activity{
 				resultLis.add(selectSubject.get(i).getId());
 			}
 		}
+	}
+	
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		// TODO Auto-generated method stub
+		super.onSaveInstanceState(outState);
+		ArrayList<Boolean> s = adapter.getSelectSubject();
+		boolean[] l = new boolean[s.size()];
+		for (int i = 0; i < s.size(); i++) {
+			l[i] = s.get(i);
+		}
+		outState.putBooleanArray("selKey", l);
+		
 	}
 }
