@@ -51,6 +51,19 @@ public class ChooseSubjectAdapter extends BaseAdapter{
 		return isSelected;
 	}
 	
+	public void clearSelectSubjects() {
+		for (int i = 0; i < isSelected.size(); i++) {
+			isSelected.set(i, false);
+		}
+	}
+	
+	public Boolean check() {
+		for (int i = 0; i < isSelected.size(); i++) {
+			if(isSelected.get(i)) return true;
+		}
+		return false;
+	}
+	
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
 		ChooseSubjectHolder holder;
