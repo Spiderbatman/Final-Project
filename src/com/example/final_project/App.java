@@ -15,6 +15,7 @@ public class App extends Application{
 	private ArrayList<Subject> subjects = new ArrayList<Subject>();
 	private ArrayList<Subject> selectSubject = new ArrayList<Subject>();
 	private Map<Subject, Map<String, String>> subjectInfo= new HashMap<Subject, Map<String, String>>();
+	private Map<String, String> mail = new HashMap<String, String>();
 	
 	@Override
 	public void onCreate() {
@@ -34,6 +35,10 @@ public class App extends Application{
 	
 	public Map<Subject, Map<String, String>> getSubjectInfo() {
 		return subjectInfo;
+	}
+	
+	public Map<String, String> getMailInfo() {
+		return mail;
 	}
 	
 	private void generate() {
@@ -79,6 +84,7 @@ public class App extends Application{
 		for (int z = 0; z < subjects.size(); z++) {
 			subjectInfo.put(subjects.get(z), m);
 		}
+		mail.put("aa", "aa");
 		
 	}
 }
