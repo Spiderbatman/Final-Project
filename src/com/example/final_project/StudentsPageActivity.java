@@ -27,13 +27,14 @@ public class StudentsPageActivity extends Activity {
 	private ListView listView;
 	private SubjectListAdapter adapter;
 	private EditText text;
+	private TabHost tabhost;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_profilepage);
-		addTabs();
+		addTabs(savedInstanceState);
 		Intent i = getIntent();
 		Bundle extra = i.getExtras();
 		TextView t = (TextView) findViewById(R.id.userInfo);
@@ -127,8 +128,8 @@ public class StudentsPageActivity extends Activity {
 		t2.setText(t2.getText().toString() + roundGpa / 100);
 	}
 
-	private void addTabs() {
-		TabHost tabhost = (TabHost) findViewById(R.id.tabhost);
+	private void addTabs(Bundle savedInstanceState) {
+		tabhost = (TabHost) findViewById(R.id.tabhost);
 		tabhost.setup();
 
 		TabHost.TabSpec spec;
@@ -143,7 +144,10 @@ public class StudentsPageActivity extends Activity {
 		spec.setIndicator("", getResources().getDrawable(R.drawable.subject));
 		tabhost.addTab(spec);
 
-		tabhost.setCurrentTab(0);
+		if (savedInstanceState != null) {
+			int value = savedInstanceState.getInt("myKey");
+			tabhost.setCurrentTab(value);
+		} else	tabhost.setCurrentTab(0);
 	}
 
 	private void searchListener() {
@@ -173,4 +177,13 @@ public class StudentsPageActivity extends Activity {
 		i.putExtra("ragac", "sds");
 		startActivity(i);
 	}
+	
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		// TODO Auto-generated method stub
+		super.onSaveInstanceState(outState);
+		int currentTab = tabhost.getCurrentTab();
+		outState.putInt("myKey", currentTab);
+	}
+
 }

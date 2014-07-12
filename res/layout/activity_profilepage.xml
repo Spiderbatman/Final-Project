@@ -67,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/gpa"
                     android:layout_marginTop="30dp"
-                    android:background="@color/blue"
+                    android:background="@drawable/roundbutton"
                     android:layout_centerHorizontal="true"
                     android:text="საგნის არჩევა"
                     android:onClick="chooseSubject"
@@ -87,13 +87,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:background="@color/white"
+                    android:background="@drawable/roundedittext"
+                    android:drawableRight="@drawable/iconsearch"
                     android:hint="შეიყვანეთ საგნის სახელი" />
 
                 <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp" 
+                    android:layout_marginTop="10dp" 
                     android:background="@color/black"
                     >
 
@@ -103,16 +104,17 @@
                         android:layout_height="wrap_content"
                         android:text="მონიშნეთ ველი: "
                         android:textColor="@color/white"
+                        android:layout_marginTop="5dp"
                         android:layout_marginLeft="20dp"
                         />
                     
                     <Spinner
                         android:id="@+id/mark_spinner"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="130dp"
+                        android:layout_height="40dp"
                         android:layout_toRightOf="@id/text_spinner"
                         android:layout_marginLeft="50dp"
-                        android:background="@color/white" />
+                        android:background="@android:drawable/btn_dropdown" />
                 </RelativeLayout>
 
                 <RelativeLayout
