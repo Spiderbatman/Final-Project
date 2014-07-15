@@ -44,7 +44,7 @@ public class OneSubjectActivity extends Activity{
 		ap = (App) getApplication();
 		subjectInfo = ap.getSubjectInfo();
 		listView = (ListView) findViewById(R.id.oneSubjects_list);
-		adapter = new OneSubjectAdapter(getLayoutInflater(), subjectInfo.get(getKeySubjet(name)));
+		adapter = new OneSubjectAdapter(getLayoutInflater(), getKeySubjet(name).getMap());
 		listView.setAdapter(adapter);
 	}
 	

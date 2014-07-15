@@ -22,9 +22,9 @@ public class OneSubjectAdapter extends BaseAdapter{
 
 	private LayoutInflater inflater;
 	private ArrayList<String> names = new ArrayList<String>();
-	private ArrayList<String> marks = new ArrayList<String>();
+	private ArrayList<Integer> marks = new ArrayList<Integer>();
 
-	public OneSubjectAdapter(LayoutInflater inflater, Map<String, String> m) {
+	public OneSubjectAdapter(LayoutInflater inflater, Map<String, Integer> m) {
 		for(String key : m.keySet()) {
 			names.add(key);
 			marks.add(m.get(key));
@@ -64,7 +64,7 @@ public class OneSubjectAdapter extends BaseAdapter{
 		}
 		
 		holder.name.setText(names.get(position));
-		holder.mark.setText(marks.get(position));
+		holder.mark.setText(marks.get(position).toString());
 		if(names.get(position).equals("ფინალური"))	{
 			holder.name.setTextColor(Color.RED);
 			holder.mark.setTextColor(Color.RED);

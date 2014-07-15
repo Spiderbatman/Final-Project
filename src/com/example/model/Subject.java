@@ -1,12 +1,14 @@
 package com.example.model;
 
+import java.util.HashMap;
+
 public class Subject {
 	private String name;
 	private int credits;
 	private double percent;
 	private boolean isFinished;
 	private int id;
-	
+	private HashMap<String, Integer> map = new HashMap<String, Integer>();
 
 	public Subject(String name, int credits, double percent, boolean isFinished, int id) {
 		this.setId(id);
@@ -57,4 +59,11 @@ public class Subject {
 		this.id = id;
 	}
 
+	public HashMap<String, Integer> getMap(){
+		return map;
+	}
+	
+	public void addExam(String ExamName, int examResult){
+		map.put(ExamName, examResult);
+	}
 }

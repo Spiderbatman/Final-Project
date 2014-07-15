@@ -1,6 +1,9 @@
 package com.example.final_project;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Map;
+
+import com.example.web.FreeuniWebWorker;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,9 +12,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class LogInActivity extends Activity{
+public class LogInActivity extends Activity {
 	private TextView k;
-	
+	private FreeuniWebWorker sendRequest = new FreeuniWebWorker(
+			"http://192.168.77.151:8080/Android_Server/Main");
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -22,30 +27,36 @@ public class LogInActivity extends Activity{
 		k.setVisibility(View.GONE);
 		t.setText("@freeuni.edu.ge");
 	}
-	
+
 	public void signInClick(View v) {
-		EditText t1 = (EditText)findViewById(R.id.userName);
-		EditText t2 = (EditText)findViewById(R.id.userPassword);
+		EditText t1 = (EditText) findViewById(R.id.userName);
+		EditText t2 = (EditText) findViewById(R.id.userPassword);
 		String name = t1.getText().toString();
 		String password = t2.getText().toString();
-		if(name.equals("") || password.equals("")) return;
+		if (name.equals("") || password.equals(""))
+			return;
+		try {
+			sendRequest.GetText(name, password);
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-		App ap = (App) getApplication();
-		Map<String, String> m = ap.getMailInfo();
-		System.out.println(name + "k   k" + m.get(name));
-		if(!m.containsKey(name) || !password.equals(m.get(name))) {
+		if (sendRequest.getCheckResult() == "-1") {
 			t1.setText("");
 			t2.setText("");
 			k.setVisibility(View.VISIBLE);
 			t2.setBackgroundResource(R.drawable.erroredittext);
 			return;
-		} else k.setVisibility(View.GONE);
+		} else
+			k.setVisibility(View.GONE);
 		t2.setBackgroundResource(R.drawable.roundedittext);
+
 		Intent i = new Intent(getBaseContext(), StudentsPageActivity.class);
 		i.putExtra("mail", name);
 		startActivity(i);
 		t1.setText("");
 		t2.setText("");
 	}
-	
+
 }

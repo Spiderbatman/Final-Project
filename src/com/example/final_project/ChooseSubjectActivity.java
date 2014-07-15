@@ -1,5 +1,6 @@
 package com.example.final_project;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 import android.app.Activity;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.adapters.ChooseSubjectAdapter;
 import com.example.model.Subject;
+import com.example.web.FreeuniWebWorker;
 
 public class ChooseSubjectActivity extends Activity{
 	
@@ -17,6 +19,7 @@ public class ChooseSubjectActivity extends Activity{
 	private ListView listView;
 	private ChooseSubjectAdapter adapter;
 	private TextView error;
+	private FreeuniWebWorker web = new FreeuniWebWorker("http://192.168.77.151:8080/Android_Server/Main");
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +40,7 @@ public class ChooseSubjectActivity extends Activity{
 		error.setVisibility(View.GONE);
 	}
 	
-	public void submitClick(View v) {
+	public void submitClick(View v) throws UnsupportedEncodingException {
 		ArrayList<Boolean> s = adapter.getSelectSubject();
 		if(!adapter.check()) {
 			error.setVisibility(View.VISIBLE);
@@ -52,6 +55,8 @@ public class ChooseSubjectActivity extends Activity{
 		}
 		adapter.clearSelectSubjects();
 		adapter.notifyDataSetChanged();
+		System.out.println("blaaaaaaaaa:"+resultLis.size());
+		web.GetSubjects(resultLis);
 		//////////////////////// finishamde unda chaamatos zuram
 		finish();
 	}
