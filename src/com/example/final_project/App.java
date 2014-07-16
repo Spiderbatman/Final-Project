@@ -19,6 +19,7 @@ public class App extends Application {
 	private DefaultWebWorker df;
 	private ArrayList<Subject> subjects = new ArrayList<Subject>();
 	private ArrayList<Subject> selectSubject = new ArrayList<Subject>();
+	private String userID;
 
 	@Override
 	public void onCreate() {
@@ -28,17 +29,14 @@ public class App extends Application {
 	public ArrayList<Subject> getSubjects() {
 		return subjects;
 	}
+	
+	public void addSubject(Subject s) {
+		subjects.add(s);
+	}
 
 	public ArrayList<Subject> getSelectSubject() {
 		return selectSubject;
 	}
-
-	// private String kai =
-	// "75#23 matematika 3 65 1 qvizi1 44 qvizi2 23,12 shroma 3 65 1 qvizi1 44 qvizi2 23 saboloo_gamocda 34,18 chama 4 33 0 qvizi1 44 qvizi2 23 saboloo_gamocda 77|5 matematika2 4,7 matematika2 2";
-
-	private String userID;
-
-	// private String s = "5 matematika2 4,7 matematika2 2";
 
 	public Subject getSelectSubject(String selectSubject) {
 		int id = 0;
@@ -103,11 +101,6 @@ public class App extends Application {
 		while (tok.hasMoreTokens()) {
 			subjects.add(getSubjects(tok.nextToken()));
 		}
-
-		System.out
-				.println("length="
-						+ text.substring(text.indexOf("|") + 1, text.length())
-								.length());
 
 		if (text.substring(text.indexOf("|") + 1, text.length()).length() <= 1) {
 			return;

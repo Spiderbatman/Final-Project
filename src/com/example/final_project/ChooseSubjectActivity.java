@@ -54,9 +54,10 @@ public class ChooseSubjectActivity extends Activity {
 		for (int i = 0; i < s.size(); i++) {
 			if (s.get(i)) {
 				resultLis.add(selectSubject.get(i).getId());
+				ap.addSubject(selectSubject.get(i));
+				selectSubject.remove(i);
 			}
 		}
-		adapter.clearSelectSubjects();
 		adapter.notifyDataSetChanged();
 		web.GetSubjects(resultLis, ap.getUserId());
 		finish();

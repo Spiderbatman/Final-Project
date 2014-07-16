@@ -45,7 +45,7 @@ public class StudentsPageActivity extends Activity {
 		text = (EditText) findViewById(R.id.filterText);
 		App ap = (App) getApplication();
 		subjects = ap.getSubjects();
-		filterSubjects = (ArrayList<Subject>)subjects.clone();
+		filterSubjects = ap.getSubjects();
 		listView = (ListView) findViewById(R.id.subjects_list);
 		adapter = new SubjectListAdapter(getLayoutInflater(), filterSubjects);
 		listView.setAdapter(adapter);
@@ -176,6 +176,14 @@ public class StudentsPageActivity extends Activity {
 		Intent i = new Intent(getBaseContext(), ChooseSubjectActivity.class);
 		i.putExtra("ragac", "sds");
 		startActivity(i);
+	}
+	
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		adapter = new SubjectListAdapter(getLayoutInflater(), filterSubjects);
+		listView.setAdapter(adapter);
 	}
 	
 	@Override
