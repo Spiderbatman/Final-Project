@@ -30,11 +30,13 @@ public class FreeuniWebWorker extends DefaultWebWorker {
 		return null;
 	}
 
+	
 	@SuppressLint("NewApi")
 	public void GetText(String mail, String password)
 			throws UnsupportedEncodingException {
 		// Get user defined values
 
+		
 		// Create data variable for sent values to server
 		String data = URLEncoder.encode("type", "UTF-8") + "="
 				+ URLEncoder.encode("1", "UTF-8");
@@ -45,7 +47,6 @@ public class FreeuniWebWorker extends DefaultWebWorker {
 		data += "&" + URLEncoder.encode("pass", "UTF-8") + "="
 				+ URLEncoder.encode(password, "UTF-8");
 
-		String text = "";
 		BufferedReader reader = null;
 
 		// Send data
@@ -103,11 +104,11 @@ public class FreeuniWebWorker extends DefaultWebWorker {
 	}
 
 	@SuppressLint("NewApi")
-	public void GetSubjects(ArrayList<Integer> subjects)
+	public void GetSubjects(ArrayList<Integer> subjects, String userId)
 			throws UnsupportedEncodingException {
-		// Get user defined values
 
-		// Create data variable for sent values to server
+		String opana = "";
+
 		String data = URLEncoder.encode("type", "UTF-8") + "="
 				+ URLEncoder.encode("2", "UTF-8");
 
@@ -116,25 +117,20 @@ public class FreeuniWebWorker extends DefaultWebWorker {
 			data += "&" + URLEncoder.encode("ind" + i, "UTF-8") + "="
 					+ URLEncoder.encode(subjects.get(i).toString(), "UTF-8");
 		}
+		data += "&" + URLEncoder.encode("userID", "UTF-8") + "="
+				+ URLEncoder.encode(userId.toString(), "UTF-8");
 
-		String text = "";
 		BufferedReader reader = null;
 
-		// Send data
 		try {
 
-			// Defined URL where to send data
 			URL url = new URL(super.url);
 
-			// Send POST data request
-
 			URLConnection conn = url.openConnection();
-			// ////////////
 			if (Build.VERSION.SDK_INT >= 10) {
 				ThreadPolicy tp = ThreadPolicy.LAX;
 				StrictMode.setThreadPolicy(tp);
 			}
-			// ///////////////////
 
 			conn.setDoOutput(true);
 			OutputStreamWriter wr = new OutputStreamWriter(
@@ -143,39 +139,27 @@ public class FreeuniWebWorker extends DefaultWebWorker {
 			System.out.println(data);
 			wr.flush();
 
-			// Get the server response
-
 			reader = new BufferedReader(new InputStreamReader(
 					conn.getInputStream()));
 			StringBuilder sb = new StringBuilder();
 			String line = null;
 
-			// Read Server Response
 			while ((line = reader.readLine()) != null) {
-				// Append server response in string
 				sb.append(line + "\n");
 			}
 
-			text = sb.toString();
-			System.out.println(text);
+			opana = sb.toString();
+			System.out.println(opana);
 		} catch (Exception ex) {
-
 		} finally {
 			try {
-
 				reader.close();
-			}
-
-			catch (Exception ex) {
+			} catch (Exception ex) {
 			}
 		}
-
-		// Show response on activity
-
 	}
 
 	public String getCheckResult() {
 		return text;
 	}
-
 }

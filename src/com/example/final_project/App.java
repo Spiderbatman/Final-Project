@@ -8,6 +8,8 @@ import java.util.StringTokenizer;
 
 import android.R.integer;
 import android.app.Application;
+import android.content.Context;
+import android.widget.Toast;
 
 import com.example.model.Subject;
 import com.example.web.DefaultWebWorker;
@@ -17,21 +19,10 @@ public class App extends Application {
 	private DefaultWebWorker df;
 	private ArrayList<Subject> subjects = new ArrayList<Subject>();
 	private ArrayList<Subject> selectSubject = new ArrayList<Subject>();
-	private Map<Subject, Map<String, String>> subjectInfo = new HashMap<Subject, Map<String, String>>();
-
-	private Map<String, String> mail = new HashMap<String, String>();
 
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		// subjects = df.getSubjects();//TODO es asynchtaskshi tu rac iqneba
-		generate(); // // / droebiiiiiit
-		/*
-		 * FreeuniWebWorker webDatas = new FreeuniWebWorker(
-		 * "http://192.168.77.34:8080/Android_Server/Main"); try {
-		 * webDatas.GetText(); } catch (UnsupportedEncodingException e) { //
-		 * TODO Auto-generated catch block e.printStackTrace(); }
-		 */
 	}
 
 	public ArrayList<Subject> getSubjects() {
@@ -42,55 +33,26 @@ public class App extends Application {
 		return selectSubject;
 	}
 
-	public Map<Subject, Map<String, String>> getSubjectInfo() {
-		return subjectInfo;
-	}
-
-	public Map<String, String> getMailInfo() {
-		return mail;
-	}
-
-	private void generate() {
-		
-		incomeTextParser(kai);
-
-		Subject g = new Subject("სამართალი", 6, 0, false, 1);
-		Subject h = new Subject("ბიზნესი", 6, 0, false, 2);
-		Subject i = new Subject("სოციოლოგია", 6, 0, false, 3);
-		Subject j = new Subject("ფსიქოლოგია", 6, 0, false, 4);
-		Subject k = new Subject("ფინანსები", 6, 0, false, 5);
-		Subject l = new Subject("მარკეტინგი", 6, 0, false, 6);
-
-		selectSubject.add(g);
-		selectSubject.add(h);
-		selectSubject.add(i);
-		selectSubject.add(j);
-		selectSubject.add(k);
-		selectSubject.add(l);
-		selectSubject.add(new Subject("მარკეტინგი", 6, 0, false, 7));
-		selectSubject.add(new Subject("მარკეტინგი", 6, 0, false, 8));
-		selectSubject.add(new Subject("მარკეტინგი", 6, 0, false, 9));
-		selectSubject.add(new Subject("მარკეტინგი", 6, 0, false, 10));
-		selectSubject.add(new Subject("მარკეტინგი", 6, 0, false, 11));
-		selectSubject.add(new Subject("მარკეტინგი", 6, 0, false, 12));
-		selectSubject.add(new Subject("მარკეტინგი", 6, 0, false, 13));
-
-		mail.put("aa", "aa");
-		
-
-	}
-
-	// userid # sagani krediti procenti gavliliaristuara subID
-	private String opa = "-1";
-	private String kai = "75#23 matematika 3 65 1 qvizi1 44 qvizi2 23,12 shroma 3 65 1 qvizi1 44 qvizi2 23 saboloo_gamocda 34,18 chama 4 33 0 qvizi1 44 qvizi2 23 saboloo_gamocda 77|5 matematika2 4,7 matematika2 2";
+	// private String kai =
+	// "75#23 matematika 3 65 1 qvizi1 44 qvizi2 23,12 shroma 3 65 1 qvizi1 44 qvizi2 23 saboloo_gamocda 34,18 chama 4 33 0 qvizi1 44 qvizi2 23 saboloo_gamocda 77|5 matematika2 4,7 matematika2 2";
 
 	private String userID;
-	private String s = "5 matematika2 4,7 matematika2 2";
 
-	// public Subject getSelectSubjects(String selectedSubjects){
-	//
-	// }
-	
+	// private String s = "5 matematika2 4,7 matematika2 2";
+
+	public Subject getSelectSubject(String selectSubject) {
+		int id = 0;
+		String name = "";
+		int credit = 0;
+
+		StringTokenizer tok = new StringTokenizer(selectSubject);
+		id = Integer.parseInt(tok.nextToken());
+		name = tok.nextToken();
+		credit = Integer.parseInt(tok.nextToken());
+		Subject sub = new Subject(name, credit, 0, false, id);
+		return sub;
+	}
+
 	public Subject getSubjects(String subject) {
 		boolean finished = false;
 		int id = 0;
@@ -122,24 +84,44 @@ public class App extends Application {
 	}
 
 	public void incomeTextParser(String text) {
-		text = kai;
-
 		StringTokenizer tok = new StringTokenizer(text.substring(
 				text.indexOf("#") + 1, text.indexOf("|")), ",");
-
 		for (int i = 0; i < text.length(); i++) {
 			if (text.charAt(0) != '-') {
 				if (text.charAt(i) == '#') {
 					userID = text.substring(0, i);
-					System.out.println(userID);
 					break;
 
 				}
+			} else {
+				Toast.makeText(getApplicationContext(),
+						"incorect password or email", Toast.LENGTH_LONG).show();
+				break;
+
 			}
 		}
 		while (tok.hasMoreTokens()) {
 			subjects.add(getSubjects(tok.nextToken()));
 		}
-		
+
+		System.out
+				.println("length="
+						+ text.substring(text.indexOf("|") + 1, text.length())
+								.length());
+
+		if (text.substring(text.indexOf("|") + 1, text.length()).length() <= 1) {
+			return;
+		}
+
+		StringTokenizer token = new StringTokenizer(text.substring(
+				text.indexOf("|") + 1, text.length()), ",");
+
+		while (token.hasMoreTokens()) {
+			selectSubject.add(getSelectSubject(token.nextToken()));
+		}
+	}
+
+	public String getUserId() {
+		return userID;
 	}
 }

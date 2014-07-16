@@ -11,16 +11,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LogInActivity extends Activity {
 	private TextView k;
 	private FreeuniWebWorker sendRequest = new FreeuniWebWorker(
-			"http://192.168.77.151:8080/Android_Server/Main");
+			"http://192.168.77.114:8080/Android_Server/Main");
+	private App app;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		app = (App) getApplication();
 		setContentView(R.layout.activity_login);
 		TextView t = (TextView) findViewById(R.id.endOfMail);
 		k = (TextView) findViewById(R.id.incorrect);
@@ -33,16 +36,20 @@ public class LogInActivity extends Activity {
 		EditText t2 = (EditText) findViewById(R.id.userPassword);
 		String name = t1.getText().toString();
 		String password = t2.getText().toString();
+		boolean isOK = false;
 		if (name.equals("") || password.equals(""))
 			return;
 		try {
 			sendRequest.GetText(name, password);
+			app.incomeTextParser(sendRequest.getCheckResult());
+			isOK = true;
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
-		if (sendRequest.getCheckResult() == "-1") {
+		if (sendRequest.getCheckResult().charAt(0) == '-') {
 			t1.setText("");
 			t2.setText("");
 			k.setVisibility(View.VISIBLE);
