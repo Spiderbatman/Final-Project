@@ -54,15 +54,16 @@ public class StudentsPageActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
-				
-				Intent i = new Intent(getBaseContext(), OneSubjectActivity.class);
+
+				Intent i = new Intent(getBaseContext(),
+						OneSubjectActivity.class);
 				Subject s = (Subject) adapter.getItem(arg2);
 				i.putExtra("SubjectName", s.getName());
 				i.putExtra("SubjectMark", "" + s.getPercent());
 				startActivity(i);
 			}
 		});
-		
+
 		calculate();
 		searchListener();
 		fillSpinner();
@@ -70,8 +71,8 @@ public class StudentsPageActivity extends Activity {
 
 	private void fillSpinner() {
 		Spinner spinner = (Spinner) findViewById(R.id.mark_spinner);
-		ArrayAdapter<CharSequence> adap = ArrayAdapter.createFromResource(
-				this, R.array.mark_array, android.R.layout.simple_spinner_item);
+		ArrayAdapter<CharSequence> adap = ArrayAdapter.createFromResource(this,
+				R.array.mark_array, android.R.layout.simple_spinner_item);
 		adap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(adap);
 		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -80,7 +81,7 @@ public class StudentsPageActivity extends Activity {
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
 				// TODO Auto-generated method stub
-				
+
 				String t = (String) arg0.getItemAtPosition(arg2);
 				adapter.getFilter().filter("&" + t);
 			}
@@ -114,10 +115,12 @@ public class StudentsPageActivity extends Activity {
 		int totalCredits = 0;
 		double totalGpaMarks = 0.0;
 		for (int i = 0; i < subjects.size(); i++) {
-			totalCredits = totalCredits + subjects.get(i).getCredits();
+			if (subjects.get(i).isFinished()) {
+				totalCredits = totalCredits + subjects.get(i).getCredits();
+			}
 			totalGpaMarks = totalGpaMarks
-					+ (subjects.get(i).getCredits() * gpaCredit(subjects.get(i)
-							.getPercent()));
+					+ (subjects.get(i).getCredits() * gpaCredit(subjects
+							.get(i).getPercent()));
 		}
 		TextView t = (TextView) (findViewById(R.id.totalCredits));
 		t.setText(t.getText().toString() + totalCredits);
@@ -147,7 +150,8 @@ public class StudentsPageActivity extends Activity {
 		if (savedInstanceState != null) {
 			int value = savedInstanceState.getInt("myKey");
 			tabhost.setCurrentTab(value);
-		} else	tabhost.setCurrentTab(0);
+		} else
+			tabhost.setCurrentTab(0);
 	}
 
 	private void searchListener() {
@@ -171,13 +175,13 @@ public class StudentsPageActivity extends Activity {
 			}
 		});
 	}
-	
+
 	public void chooseSubject(View v) {
 		Intent i = new Intent(getBaseContext(), ChooseSubjectActivity.class);
 		i.putExtra("ragac", "sds");
 		startActivity(i);
 	}
-	
+
 	@Override
 	protected void onResume() {
 		// TODO Auto-generated method stub
@@ -185,7 +189,7 @@ public class StudentsPageActivity extends Activity {
 		adapter = new SubjectListAdapter(getLayoutInflater(), filterSubjects);
 		listView.setAdapter(adapter);
 	}
-	
+
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		// TODO Auto-generated method stub

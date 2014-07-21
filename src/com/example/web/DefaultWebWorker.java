@@ -1,8 +1,5 @@
 package com.example.web;
 
-import java.util.ArrayList;
-
-import com.example.model.Subject;
 
 public abstract class DefaultWebWorker {
 	protected String url;
@@ -10,9 +7,6 @@ public abstract class DefaultWebWorker {
 	public DefaultWebWorker(String url) {
 		this.url = url;
 	}
-
-	public abstract ArrayList<Subject> getSubjects();
-
 	public String getUrl() {
 		return url;
 	}

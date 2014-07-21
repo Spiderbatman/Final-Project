@@ -2,7 +2,6 @@ package com.example.adapters;
 
 import java.util.ArrayList;
 
-import android.R.bool;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

@@ -1,22 +1,16 @@
 package com.example.adapters;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Map;
 
-import android.R.bool;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
 
 import com.example.final_project.R;
-import com.example.model.Subject;
 
 public class OneSubjectAdapter extends BaseAdapter{
 

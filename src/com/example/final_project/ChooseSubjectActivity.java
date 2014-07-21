@@ -21,7 +21,7 @@ public class ChooseSubjectActivity extends Activity {
 	private TextView error;
 	private App ap;
 	private FreeuniWebWorker web = new FreeuniWebWorker(
-			"http://192.168.77.114:8080/Android_Server/Main");
+			"http://192.168.76.194:8080/Android_Server/Main");
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

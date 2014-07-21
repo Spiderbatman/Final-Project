@@ -1,9 +1,8 @@
 package com.example.final_project;
 
 import java.io.UnsupportedEncodingException;
-import java.util.Map;
-
-import com.example.web.FreeuniWebWorker;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,12 +10,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.web.FreeuniWebWorker;
 
 public class LogInActivity extends Activity {
 	private TextView k;
 	private FreeuniWebWorker sendRequest = new FreeuniWebWorker(
-			"http://192.168.77.114:8080/Android_Server/Main");
+			"http://192.168.76.194:8080/Android_Server/Main");
 	private App app;
 
 	@Override
@@ -36,13 +36,12 @@ public class LogInActivity extends Activity {
 		EditText t2 = (EditText) findViewById(R.id.userPassword);
 		String name = t1.getText().toString();
 		String password = t2.getText().toString();
-		boolean isOK = false;
 		if (name.equals("") || password.equals(""))
 			return;
+		
 		try {
-			sendRequest.GetText(name, password);
+			sendRequest.GetText(name, computeMD5Hash(password));
 			app.incomeTextParser(sendRequest.getCheckResult());
-			isOK = true;
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 
@@ -65,5 +64,31 @@ public class LogInActivity extends Activity {
 		t1.setText("");
 		t2.setText("");
 	}
+
+	public String computeMD5Hash(String password)
+    {
+ 
+        try {
+            // Create MD5 Hash
+            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
+            digest.update(password.getBytes());
+            byte messageDigest[] = digest.digest();
+      
+            StringBuffer MD5Hash = new StringBuffer();
+            for (int i = 0; i < messageDigest.length; i++)
+            {
+                String h = Integer.toHexString(0xFF & messageDigest[i]);
+                while (h.length() < 2)
+                    h = "0" + h;
+                MD5Hash.append(h);
+            }
+           return "" + MD5Hash;
+         } 
+            catch (NoSuchAlgorithmException e) 
+            {
+            e.printStackTrace();
+            }
+         return null;
+    }
 
 }

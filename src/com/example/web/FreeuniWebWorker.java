@@ -14,8 +14,6 @@ import android.os.Build;
 import android.os.StrictMode;
 import android.os.StrictMode.ThreadPolicy;
 
-import com.example.model.Subject;
-
 public class FreeuniWebWorker extends DefaultWebWorker {
 
 	private String text = "";
@@ -23,13 +21,6 @@ public class FreeuniWebWorker extends DefaultWebWorker {
 	public FreeuniWebWorker(String url) {
 		super(url);
 	}
-
-	@Override
-	public ArrayList<Subject> getSubjects() {
-		// TODO aq freeunis gadmowera
-		return null;
-	}
-
 	
 	@SuppressLint("NewApi")
 	public void GetText(String mail, String password)
@@ -138,7 +129,6 @@ public class FreeuniWebWorker extends DefaultWebWorker {
 			wr.write(data);
 			System.out.println(data);
 			wr.flush();
-
 			reader = new BufferedReader(new InputStreamReader(
 					conn.getInputStream()));
 			StringBuilder sb = new StringBuilder();
@@ -162,4 +152,5 @@ public class FreeuniWebWorker extends DefaultWebWorker {
 	public String getCheckResult() {
 		return text;
 	}
+
 }

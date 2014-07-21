@@ -1,22 +1,13 @@
 package com.example.final_project;
 
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.StringTokenizer;
 
-import android.R.integer;
 import android.app.Application;
-import android.content.Context;
-import android.widget.Toast;
 
 import com.example.model.Subject;
-import com.example.web.DefaultWebWorker;
-import com.example.web.FreeuniWebWorker;
 
 public class App extends Application {
-	private DefaultWebWorker df;
 	private ArrayList<Subject> subjects = new ArrayList<Subject>();
 	private ArrayList<Subject> selectSubject = new ArrayList<Subject>();
 	private String userID;
@@ -92,8 +83,6 @@ public class App extends Application {
 
 				}
 			} else {
-				Toast.makeText(getApplicationContext(),
-						"incorect password or email", Toast.LENGTH_LONG).show();
 				break;
 
 			}

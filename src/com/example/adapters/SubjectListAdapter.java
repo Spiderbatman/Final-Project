@@ -1,8 +1,8 @@
 package com.example.adapters;
 
 import java.util.ArrayList;
-import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -104,6 +104,7 @@ public class SubjectListAdapter extends BaseAdapter {
 			}
 		}
 
+		@SuppressLint("DefaultLocale")
 		@Override
 		protected FilterResults performFiltering(CharSequence constraint) {
 			String filterString = constraint.toString().toLowerCase();

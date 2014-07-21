@@ -1,25 +1,20 @@
 package com.example.final_project;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
-import com.example.adapters.OneSubjectAdapter;
-import com.example.adapters.SubjectListAdapter;
-import com.example.model.Subject;
-
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.adapters.OneSubjectAdapter;
+import com.example.model.Subject;
+
 public class OneSubjectActivity extends Activity{
 	
 	private ListView listView;
 	private OneSubjectAdapter adapter;
-	private Map<Subject, Map<String, String>> subjectInfo= new HashMap<Subject, Map<String, String>>();
 	private App ap;
 	
 	@Override
